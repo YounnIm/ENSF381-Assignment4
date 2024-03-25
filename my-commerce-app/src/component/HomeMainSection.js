@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import reviews from "../data/reviews.js";
+import { Link } from "react-router-dom";
 
 const HomeMainSection = () => {
   const [selectedReviews, setSelectedReviews] = useState([]);
@@ -14,7 +15,9 @@ const HomeMainSection = () => {
       <section>
         <h1>About Us</h1>
         <p>Company's vision and mission</p>
+        <Link to="/products">
         <button>Shop Now</button>
+        </Link>
       </section>
       <section>
         <h1>Customer Reviews</h1>
