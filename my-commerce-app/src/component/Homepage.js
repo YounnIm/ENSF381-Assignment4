@@ -12,7 +12,7 @@ const Header = () => {
         </div>
         <nav style={{ display: 'flex', justifyContent: 'space-between', width: '200px' }}>
             <a href="/">Home</a>
-            <a href="/products">Products</a>
+            <a href="/ProductPage">Products</a>
             <a href="/login">Login</a>
         </nav>
       </header>
