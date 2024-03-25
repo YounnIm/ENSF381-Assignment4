@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Homepage from './component/Homepage';
 import ProductPage from './component/ProductPage'; // import your Products component
 
-const App = () => {
+function App() {
   return (
     <Router>
       <Routes>
@@ -13,7 +13,7 @@ const App = () => {
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;
 
