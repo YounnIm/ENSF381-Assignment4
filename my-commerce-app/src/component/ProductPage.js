@@ -46,14 +46,14 @@ function ProductPage() {
   
   return (
     <div className="product-page">
-
+    <Header/ >
     <table>
     <tr>
     <td><ProductList addToCart={addToCart} /></td>
     <td style={{verticalAlign:'top'}}><Cart cartItems={cartItems} removeFromCart={removeFromCart} /></td>
     </tr>
     </table>
-
+    <Footer/ >
     </div>
   );
 }
