@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const logo = process.env.PUBLIC_URL + '/images/logo.png';
-// Header Component
 const Header = () => {
     return (
         <header style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
