@@ -12,7 +12,30 @@ const SignupForm = ({ onSwitch }) => {
 			alert("Passwords don't match");
 			return;
 		}
+	
 		// Perform signup operation
+		fetch('http://127.0.0.1:5000/signup', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				username: username,
+				password: password,
+				email: email
+			})
+		})
+		.then(response => response.json())
+		.then(data => {
+			if (data.message === 'User registered successfully') {
+				alert('User registered successfully');
+			} else {
+				alert(data.message);
+			}
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+		});
 	};
 	
 	return (

@@ -7,6 +7,32 @@ const LoginForm = ({ onSwitch }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+    
+        // Perform login operation
+        fetch('http://127.0.0.1:5000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        })
+        .then(response => {
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                throw new Error('Login failed');
+            }
+        })
+        .then(data => {
+            alert('Login successful');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert(error.message);
+        });
     };
 
     return (
