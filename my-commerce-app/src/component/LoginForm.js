@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-
-const LoginForm = ({ onSwitch }) => {
+const LoginForm = ({ onSwitch, onLogin }) => { // Add onLogin prop
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -28,6 +27,7 @@ const LoginForm = ({ onSwitch }) => {
         })
         .then(data => {
             alert('Login successful');
+            onLogin(); // Call onLogin after a successful login
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -48,6 +48,7 @@ const LoginForm = ({ onSwitch }) => {
         <button type="submit">Login</button>
         <button type="button" onClick={onSwitch}>Switch to Signup</button>
         </form>
-    );};
+    );
+};
 
-export default LoginForm
+export default LoginForm;

@@ -107,7 +107,7 @@ def login():
     if user is None:
         return jsonify({'message': 'Invalid username or password'}), 401
 
-    return redirect(url_for('products'))
+    return get_products()
 
 @app.route('/products', methods=['GET'])
 def get_products():

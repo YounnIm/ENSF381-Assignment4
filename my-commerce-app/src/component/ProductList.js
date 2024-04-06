@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductItem from './ProductItem';
-import products from '../data/products';
 
 function ProductList({ addToCart }) {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/products')
+      .then(response => response.json())
+      .then(data => setProducts(data));
+  }, []);
+
   return (
     <div>
       {products.map(product => (
@@ -12,4 +19,4 @@ function ProductList({ addToCart }) {
   );
 }
 
-export default ProductList
+export default ProductList;

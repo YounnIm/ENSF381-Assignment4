@@ -1,11 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { UserContext } from '../App'; // Import UserContext
 import Header from './Header';
 import Footer from './Footer';
 import ProductList from './ProductList';
 import Cart from './Cart';
+import { Navigate } from 'react-router-dom'; // Import Navigate
 
 function ProductPage() {
   const [cartItems, setCartItems] = useState([]);
+  const { isLoggedIn } = useContext(UserContext); // Use UserContext
+  
+  useEffect(() => {
+    console.log('ProductPage:', isLoggedIn); // Add this line
+  }, [isLoggedIn]);
+
   
   useEffect(() => {
     const savedCartItems = localStorage.getItem('cartItems');
@@ -44,16 +52,20 @@ function ProductPage() {
     });
   };
   
+  if (!isLoggedIn) {
+    return <Navigate to="/login" />; // Redirect to login if user is not logged in
+  }
+
   return (
     <div className="product-page">
-    <Header/ >
-    <table>
-    <tr>
-    <td><ProductList addToCart={addToCart} /></td>
-    <td style={{verticalAlign:'top'}}><Cart cartItems={cartItems} removeFromCart={removeFromCart} /></td>
-    </tr>
-    </table>
-    <Footer/ >
+      <Header />
+      <table>
+        <tr>
+          <td><ProductList addToCart={addToCart} /></td>
+          <td style={{verticalAlign:'top'}}><Cart cartItems={cartItems} removeFromCart={removeFromCart} /></td>
+        </tr>
+      </table>
+      <Footer />
     </div>
   );
 }
