@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const LoginForm = ({ onSwitch, onLogin }) => { // Add onLogin prop
+const LoginForm = ({ onSwitch, onLogin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 

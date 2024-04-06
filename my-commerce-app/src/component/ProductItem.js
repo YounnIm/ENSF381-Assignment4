@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 function ProductItem({ product, addToCart }) {
   const [showDetails, setShowDetails] = useState(false);
   
-  // Import the image from the public/images directory
   const imageUrl = process.env.PUBLIC_URL + '/' + product.image;
 
   return (

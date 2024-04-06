@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { UserContext } from '../App'; // Import UserContext
+import { UserContext } from '../App';
 import Header from './Header';
 import Footer from './Footer';
 import ProductList from './ProductList';
 import Cart from './Cart';
-import { Navigate } from 'react-router-dom'; // Import Navigate
+import { Navigate } from 'react-router-dom';
 
 function ProductPage() {
   const [cartItems, setCartItems] = useState([]);
-  const { isLoggedIn } = useContext(UserContext); // Use UserContext
+  const { isLoggedIn } = useContext(UserContext);
   
   useEffect(() => {
-    console.log('ProductPage:', isLoggedIn); // Add this line
+    console.log('ProductPage:', isLoggedIn);
   }, [isLoggedIn]);
 
-  
+
   useEffect(() => {
     const savedCartItems = localStorage.getItem('cartItems');
     if (savedCartItems) {

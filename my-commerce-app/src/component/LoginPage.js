@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { UserContext } from '../App'; // Import UserContext
+import { UserContext } from '../App';
 import Header from './Header';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
@@ -7,7 +7,7 @@ import Footer from './Footer';
 
 const LoginPage = () => {
     const [isLogin, setIsLogin] = useState(true);
-    const { setIsLoggedIn } = useContext(UserContext); // Use UserContext
+    const { setIsLoggedIn } = useContext(UserContext);
 
     const handleLogin = () => {
         setIsLoggedIn(true);
